@@ -144,6 +144,10 @@ hr {
 
 @media only screen and (min-width: 375px) and (orientation: portrait) {
 
+    header {
+        min-height: 9rem;
+    }
+
     #left {
         margin-left: 0.5rem;
     }
