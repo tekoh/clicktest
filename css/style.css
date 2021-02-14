@@ -126,7 +126,7 @@ hr {
     transition: 0.2s;
 }
 
-#playArea h1 {
+#prompt {
     text-align: center;
     margin-top: 11rem;
     font-size: 3rem;
@@ -140,4 +140,42 @@ hr {
     #right p {
         font-size: 2rem;
     }
+}
+
+@media only screen and (min-width: 375px) and (orientation: portrait) {
+
+    #left {
+        margin-left: 0.5rem;
+    }
+
+    #right {
+        margin-right: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 2.1rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    #stats p {
+        font-size: 0.8rem;
+    }
+
+    #mode a {
+        font-size: 0.8rem;
+    }
+
+    #right p {
+        font-size: 1.5rem;
+        display: block;
+    }
+
+    #prompt {
+        font-size: 2rem;
+        margin: 7rem 2rem 0rem 2rem;
+    }
+
 }
