@@ -14,7 +14,6 @@ function changeMode(modeSelected) {
     document.getElementById(modeSelected).classList.add("selected")
 }
 
-
 $("#playArea").unbind().click(() => {
     if (state == 0) {
         state = 1
