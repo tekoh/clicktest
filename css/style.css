@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #23272e;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+header h1 {
+    color: rgb(120, 203, 241);
+    font-weight: 400;
+    font-size: 5rem;
+    margin-right: 2.5rem;
+    display: inline-block;
+}
+
+header h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+header {
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translate(-50%); */
+    height: auto;
+    max-height: fit-content;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+header a {
+    color: rgb(170, 170, 170);
+    background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgb(109, 109, 109) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition-duration: 0.3s;
+}
+
+header a:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#left {
+    margin-left: 5rem;
+    color: white;
+    flex: 1;
+    order: 1;
+    text-align: left;
+}
+
+#mode, #stats {
+    display: inline-block;
+}
+
+#stats {
+    margin-right: 1rem;
+}
+
+#stats p {
+    font-size: 1rem;
+}
+
+#mode a {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Roboto Mono', monospace;
+    transition: 0.5s;
+}
+
+.selected, .highlighted {
+    color: rgb(120, 203, 241);
+}
+
+#right {
+    flex: 1;
+    order: 2;
+    color: white;
+    text-align: right;
+    margin-right: 5rem;
+}
+
+#right p {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0rem 2rem;
+    transform: translate(-0%, 50%);
+}
+
+.number {
+    color: rgb(120, 203, 241);
+    font-family: 'Roboto Mono', monospace;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #1e2127;
+    box-shadow: 0px 0px 1rem black;
+    transition: 0.3s
+}
+
+#playArea {
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(#21242b 10%, transparent 11%);
+    background-size: 40px 40px;
+    background-position: 0 0, 80px 80px;
+    background-repeat: repeat;
+    outline: 5px dotted rgb(120, 203, 241);
+    outline-offset: -15px;
+    transition: 0.2s;
+}
+
+#playArea h1 {
+    text-align: center;
+    margin-top: 11rem;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    opacity: 80%;
+    transition: 0.3s;
+}
+
+@media (max-width: 1400px) {
+    #right p {
+        font-size: 2rem;
+    }
+}
