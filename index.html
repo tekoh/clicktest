@@ -52,6 +52,11 @@
 
     <div id="playArea">
         <h1 id="prompt">click in the <span class="highlighted">play area</span> to begin playing</h1>
+        <script>
+            if (navigator.userAgent.match("/Mobile/")) {
+                $("#prompt").html('tap in the <span class=highlighted">play area</span> to begin playing')
+            }
+        </script>
     </div>
     <script src="js/game.js"> </script>
 </body>
