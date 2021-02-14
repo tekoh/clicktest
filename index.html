@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="./css/style.css">
     <title>click test</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta property="og:type" content="REPLACE WITH URL (no https)" />
     <meta property="og:title" content="click test" />
     <meta property="og:description" content="minimal click test" />
@@ -53,7 +53,24 @@
     <div id="playArea">
         <h1 id="prompt">click in the <span class="highlighted">play area</span> to begin playing</h1>
         <script>
-            if (navigator.userAgent.match("/Mobile/")) {
+
+            function detectMob() {
+                const toMatch = [
+                    /Android/i,
+                    /webOS/i,
+                    /iPhone/i,
+                    /iPad/i,
+                    /iPod/i,
+                    /BlackBerry/i,
+                    /Windows Phone/i
+                ];
+
+                return toMatch.some((toMatchItem) => {
+                    return navigator.userAgent.match(toMatchItem);
+                });
+            } 
+
+            if (detectMob()) {
                 $("#prompt").html('tap in the <span class=highlighted">play area</span> to begin playing')
             }
         </script>
