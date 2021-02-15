@@ -180,6 +180,7 @@ footer p {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.185);
     backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
     top: 0;
     z-index: 10;
     display: none;
