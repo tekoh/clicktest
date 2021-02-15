@@ -9,8 +9,8 @@ function changeMode(modeSelected) {
 
     mode = modeSelected
 
-    document.getElementsByClassName("selected")[0].classList.remove("selected")
-    document.getElementById(modeSelected).classList.add("selected")
+    $(".selected").removeClass("selected")
+    $(`#${modeSelected}`).addClass("selected")
 }
 
 $("#playArea").unbind().click(() => {
