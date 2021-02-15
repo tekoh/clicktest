@@ -4,7 +4,7 @@ let clicks = 0
 let seconds = 0
 
 function changeMode(modeSelected) {
-    if (state != 0) return
+    if (state != 0 && state != 5) return
     if (modeSelected == mode) return
 
     mode = modeSelected
@@ -14,7 +14,7 @@ function changeMode(modeSelected) {
 }
 
 $("#playArea").unbind().click(() => {
-    if (state == 0) {
+    if (state == 0 || state == 5) {
         state = 1
 
         startTime = new Date().getTime()
@@ -30,6 +30,17 @@ $("#playArea").unbind().click(() => {
             if ((seconds / 10) == mode) {
                 clearInterval(secondsUpdater)
                 state = 3
+
+                $("#clicksResult").text(clicks)
+                $("#cpsResult").text(calculateCps())
+                $("#secondsResult").text((seconds / 10).toFixed(1))
+
+                $("#fullscreen").addClass("fadeIn")
+                $("#fullscreen").css("display", "block")
+
+                setTimeout(() => {
+                    state = 4
+                }, 1000)
             }
         }, 100);
 
@@ -59,4 +70,30 @@ function calculateCps() {
         return (clicks / 1).toFixed(1)
     }
     return (clicks / (seconds / 10)).toFixed(1)
+}
+
+function saveData() {
+    if (state == 3) return
+
+
+}
+
+function restartGame() {
+    if (state == 3) return
+
+    $("#fullscreen").removeClass("fadeIn")
+    $("#fullscreen").addClass("fadeOut")
+
+    setTimeout(() => {
+        $("#fullscreen").css("display", "none")
+        $("#fullscreen").removeClass("fadeOut")
+    }, 1000)
+
+    state = 5
+    seconds = 0
+
+    $("#seconds").text("0.0")
+    $("#cps").text("0.0")
+    
+    updateClicks(0)
 }

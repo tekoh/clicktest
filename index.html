@@ -60,7 +60,6 @@
     <hr>
 
     <footer>
-
         <div class="left" id="clicksContainer">
             <p><span class="number" id="clicks">0</span> clicks</p>
         </div>
@@ -74,6 +73,42 @@
             <p><span class="number" id="seconds">0.0</span> seconds</p>
         </div>
     </footer>
+
+    <div id="fullscreen">
+        <div id="results">
+            <h1>results</h1>
+            <hr>
+            <div id="innerResults">
+                <div class="left resultsStat" id="clicksResultContainer">
+                    <p><span class="number" id="clicksResult">0</span><br>clicks</p>
+                </div>
+
+                <div class="middle resultsStat" id="cpsResultContainer">
+                    <p><span class="number" id="cpsResult">0.0</span><br>clicks/second</p>
+                </div>
+
+                <div class="right resultsStat" id="secondsResultContainer">
+                    <p><span class="number" id="secondsResult">0.0</span><br>seconds</p>
+                </div>
+            </div>
+            <hr>
+
+            <div id="lowerResults">
+                <div class="left buttonContainer" id="saveContainer">
+                    <button class="btn-save">
+                        save results
+                    </button>
+                </div>
+                
+                <div class="right buttonContainer" id="continueContainer">
+                    <button class="btn-continue" onclick="restartGame()">
+                        play again
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <script src="./js/game.js"> </script>
     <script src="./js/mobile.js"></script>

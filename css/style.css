@@ -55,7 +55,7 @@ header a:hover {
 
 #tekoh {
     color: rgba(200, 227, 238, 0.822);
-    z-index: 100;
+    z-index: 5;
     position: absolute;
     transform: translate(145%, -90%);
 }
@@ -172,6 +172,125 @@ footer {
 
 footer p {
     display: block;
+}
+
+#fullscreen {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.185);
+    backdrop-filter: blur(1rem);
+    top: 0;
+    z-index: 10;
+    display: none;
+}
+
+#results {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.308);
+    background-color: #1e2127;
+    border-radius: 1rem;
+    height: 25rem;
+    width: 40rem;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+}
+
+#results h1 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+#results hr {
+    margin: 1rem;
+    background: #23272e;
+}
+
+#innerResults {
+    display: flex;
+    color: white;
+    margin: 2rem 0rem;
+    width: 100%;
+}
+
+.resultsStat {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0rem;
+}
+
+.resultsStat .number {
+    font-size: 3rem;
+}
+
+.resultsStat p {
+    display: block;
+}
+
+#lowerResults {
+    width: 100%;
+    height: 9rem;
+    display: flex;
+}
+
+#lowerResults button {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    color: white;
+    font-size: 2rem;
+    transition-duration: 0.3s;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0);
+}
+
+#lowerResults button:hover {
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 1)
+}
+
+#lowerResults button:focus {
+    border: 1px solid black;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.buttonContainer {
+    margin: 0rem;
+    padding: 1rem;
+}
+
+.btn-save {
+    background-color: rgb(0, 255, 106, 0.69);
+}
+
+.btn-continue {
+    background-color: rgb(120, 203, 241, 0.69);
+}
+
+.fadeIn {
+    animation: fullscreenFadeIn 2s;
+}
+
+.fadeOut {
+    animation: fullscreenFadeOut 1s;
+}
+
+@keyframes fullscreenFadeIn {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
+@keyframes fullscreenFadeOut {
+    from { opacity: 100%; }
+    to { opacity: 0%; }
 }
 
 @media (max-width: 1120px) {
