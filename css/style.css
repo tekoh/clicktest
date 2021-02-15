@@ -373,6 +373,10 @@ footer p {
         font-size: 2rem;
     }
 
+    #lowerResults {
+        height: 6rem;
+    }
+
     #lowerResults button {
         font-size: 1.5rem;
     }
