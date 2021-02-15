@@ -4,6 +4,7 @@ let clicks = 0
 let seconds = 0
 
 function changeMode(modeSelected) {
+    if (state != 0) return
     if (modeSelected == mode) return
 
     mode = modeSelected
