@@ -336,7 +336,7 @@ footer p {
     }
 
     #playArea {
-        height: 73vh;
+        height: 60vh;
     }
 
     #prompt {
@@ -359,6 +359,22 @@ footer p {
     #cpsContainer {
         font-size: 0.75rem;
         padding-top: 1rem;
+    }
+
+    #results {
+        width: 20rem;
+    }
+
+    .resultsStat {
+        font-size: 1rem;
+    }
+
+    .resultsStat .number {
+        font-size: 2rem;
+    }
+
+    #lowerResults button {
+        font-size: 1.5rem;
     }
 
 }
