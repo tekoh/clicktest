@@ -3,8 +3,6 @@ let state = 0
 let clicks = 0
 let seconds = 0
 
-let startTime, endTime
-
 function changeMode(modeSelected) {
     if (modeSelected == mode) return
 
@@ -26,6 +24,7 @@ $("#playArea").unbind().click(() => {
             seconds = seconds + 1
 
             $("#seconds").text((seconds / 10).toFixed(1))
+            updateCps()
 
             if ((seconds / 10) == mode) {
                 clearInterval(secondsUpdater)
@@ -40,10 +39,23 @@ $("#playArea").unbind().click(() => {
         }, 150)
     } else if (state == 1) {
         updateClicks(clicks + 1)
+        updateCps()
     }
 })
 
 function updateClicks(value) {
     clicks = value
     $("#clicks").text(value)
+}
+
+function updateCps() {
+    const cps = calculateCps()
+    $("#cps").text(cps)
+}
+
+function calculateCps() {
+    if (seconds < 10) {
+        return (clicks / 1).toFixed(1)
+    }
+    return (clicks / (seconds / 10)).toFixed(1)
 }

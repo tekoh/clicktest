@@ -11,15 +11,14 @@
     <meta name="theme-color" content="#fffffe" />
     <meta name="description" content="minimal click test" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-    <script src="js/script.js"> </script>
+    <script src="./js/script.js"> </script>
 </head>
 
 <body class="preload" onselectstart="return false">
     
     <header>
-        <div id="left">
-            <h1>click test</h1>
-            
+
+        <div class="left">
             <div id="stats">
                 <h2>stats</h2>
 
@@ -27,7 +26,14 @@
                 <p>games: <span class="number" id="statsTotalGames">0</span></p>
                 <p>highest: <span class="number" id="statsHighest">0</span></p>
             </div>
+        </div>
 
+        <div id="title" class="middle">
+            <h1>click test</h1>
+            <a href="https://tekoh.wtf" id="tekoh">by tekoh</a>
+        </div>
+
+        <div class="right">
             <div id="mode">
                 <h2>time</h2>
 
@@ -42,40 +48,35 @@
             </div>
         </div>
         
-        <div id="right">
-            <p><span class="number" id="clicks">0</span> clicks</p>
-            <p><span class="number" id="seconds">0.0</span> seconds</p>
-        </div>
+        
     </header>
 
     <hr>
 
     <div id="playArea">
         <h1 id="prompt">click in the <span class="highlighted">play area</span> to begin playing</h1>
-        <script>
-
-            function detectMob() {
-                const toMatch = [
-                    /Android/i,
-                    /webOS/i,
-                    /iPhone/i,
-                    /iPad/i,
-                    /iPod/i,
-                    /BlackBerry/i,
-                    /Windows Phone/i
-                ];
-
-                return toMatch.some((toMatchItem) => {
-                    return navigator.userAgent.match(toMatchItem);
-                });
-            } 
-
-            if (detectMob()) {
-                $("#prompt").html('tap in the <span class=highlighted">play area</span> to begin playing')
-            }
-        </script>
     </div>
-    <script src="js/game.js"> </script>
+
+    <hr>
+
+    <footer>
+
+        <div class="left" id="clicksContainer">
+            <p><span class="number" id="clicks">0</span> clicks</p>
+        </div>
+
+        <div class="middle" id="cpsContainer">
+            <p><span class="number" id="cps">0.0</span></p>
+            <p>clicks/second</p>
+        </div>
+
+        <div class="right" id="secondsContainer">
+            <p><span class="number" id="seconds">0.0</span> seconds</p>
+        </div>
+    </footer>
+
+    <script src="./js/game.js"> </script>
+    <script src="./js/mobile.js"></script>
 </body>
 
 </html>

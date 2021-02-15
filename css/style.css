@@ -18,14 +18,6 @@ body {
     overflow: hidden;
 }
 
-header h1 {
-    color: rgb(120, 203, 241);
-    font-weight: 400;
-    font-size: 5rem;
-    margin-right: 2.5rem;
-    display: inline-block;
-}
-
 header h2 {
     font-weight: 400;
     font-size: 1.5rem;
@@ -33,13 +25,8 @@ header h2 {
 }
 
 header {
-    /* position: absolute; */
-    /* left: 50%; */
-    /* transform: translate(-50%); */
-    height: auto;
-    max-height: fit-content;
+    height: 7rem;
     width: 100%;
-    margin: auto;
     display: flex;
 }
 
@@ -55,20 +42,55 @@ header a:hover {
     color: rgba(255, 255, 255, 0.6);
 }
 
-#left {
+#title {
+    overflow: hidden;
+}
+
+#title h1 {
+    color: rgb(120, 203, 241);
+    font-weight: 400;
+    font-size: 5rem;
+    margin-top: -0.7rem;
+}
+
+#tekoh {
+    color: rgba(200, 227, 238, 0.822);
+    z-index: 100;
+    position: absolute;
+    transform: translate(145%, -90%);
+}
+
+.middle {
+    flex: 1;
+    order: 2;
+    text-align: center;
+}
+
+.left {
     margin-left: 5rem;
-    color: white;
     flex: 1;
     order: 1;
+    text-align: right;
+}
+
+.right {
+    flex: 1;
+    order: 3;
     text-align: left;
+    margin-right: 5rem;
 }
 
 #mode, #stats {
     display: inline-block;
+    color: white;
 }
 
 #stats {
     margin-right: 1rem;
+}
+
+#mode {
+    margin-left: 1rem;
 }
 
 #stats p {
@@ -86,21 +108,6 @@ header a:hover {
     color: rgb(120, 203, 241);
 }
 
-#right {
-    flex: 1;
-    order: 2;
-    color: white;
-    text-align: right;
-    margin-right: 5rem;
-}
-
-#right p {
-    display: inline-block;
-    font-size: 2.5rem;
-    margin: 0rem 2rem;
-    transform: translate(-0%, 50%);
-}
-
 .number {
     color: rgb(120, 203, 241);
     font-family: 'Roboto Mono', monospace;
@@ -115,7 +122,7 @@ hr {
 }
 
 #playArea {
-    height: 100%;
+    height: 77vh;
     width: 100%;
     background-image: radial-gradient(#21242b 10%, transparent 11%);
     background-size: 40px 40px;
@@ -136,28 +143,65 @@ hr {
     transition: 0.3s;
 }
 
-@media (max-width: 1400px) {
-    #right p {
-        font-size: 2rem;
+footer {
+    /* border: 1px solid black; */
+    height: 6.5rem;
+    width: 100%;
+    display: flex;
+}
+
+#clicksContainer, #secondsContainer {
+    font-size: 2.5rem;
+    margin: 0rem 2rem;
+    color: white;
+}
+
+#clicksContainer p, #secondsContainer p {
+    margin-top: 2rem;
+}
+
+#cps {
+    font-size: 3rem;
+}
+
+#cpsContainer {
+    color: white;
+    font-size: 1.5rem;
+    padding-top: 0.2rem;
+}
+
+footer p {
+    display: block;
+}
+
+@media (max-width: 1120px) {
+    #title h1 {
+        font-size: 2.5rem;
     }
 }
 
 @media only screen and (min-width: 375px) and (orientation: portrait) {
 
     header {
-        min-height: 9rem;
+        min-height: 3rem;
+        height: auto;
     }
 
-    #left {
+    .left {
         margin-left: 0.5rem;
     }
 
-    #right {
+    .right {
         margin-right: 0.5rem;
     }
 
-    header h1 {
+    #title h1 {
         font-size: 2.1rem;
+        margin-top: 0rem;
+    }
+
+    #tekoh {
+        display: none;
     }
 
     header h2 {
@@ -172,14 +216,30 @@ hr {
         font-size: 0.8rem;
     }
 
-    #right p {
-        font-size: 1.5rem;
-        display: block;
+    #playArea {
+        height: 73vh;
     }
 
     #prompt {
         font-size: 2rem;
         margin: 7rem 2rem 0rem 2rem;
+    }
+
+    footer {
+        height: auto;
+    }
+
+    #clicksContainer , #secondsContainer  {
+        font-size: 1rem;
+    }
+
+    #cps {
+        font-size: 1.75rem;
+    }
+
+    #cpsContainer {
+        font-size: 0.75rem;
+        padding-top: 1rem;
     }
 
 }
