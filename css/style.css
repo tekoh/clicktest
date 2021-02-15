@@ -336,7 +336,7 @@ footer p {
     }
 
     #playArea {
-        height: 63vh;
+        height: 60vh;
     }
 
     #prompt {
@@ -374,7 +374,7 @@ footer p {
     }
 
     #lowerResults {
-        height: 6rem;
+        height: 10rem;
     }
 
     #lowerResults button {
