@@ -33,7 +33,7 @@ $("#playArea").unbind().click(() => {
 
                 $("#clicksResult").text(clicks)
                 $("#cpsResult").text(calculateCps())
-                $("#secondsResult").text((seconds / 10).toFixed(1))
+                $("#secondsResult").text((seconds / 10))
 
                 $("#fullscreen").addClass("fadeIn")
                 $("#fullscreen").css("display", "block")
