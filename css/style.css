@@ -417,7 +417,7 @@ footer p {
 
 @media (max-height: 900px) {
     #playArea {
-        height: 72vh;
+        height: 71vh;
     }
 
     header {
@@ -425,7 +425,7 @@ footer p {
     }
 
     footer {
-        height: 14vh;
+        height: 15vh;
     }
 }
 

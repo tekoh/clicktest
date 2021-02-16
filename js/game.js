@@ -208,8 +208,12 @@ function closeCookies() {
 }
 
 function showCheckmark() {
+    $("#tick").css("height", "15rem")
+    $("#tick").css("width", "15rem")
+    $("#tick").css("transform", "translate(-50%, 1000%)")
     $("#tick").addClass("checkMark")
     $("#tick").css("display", "block")
+    $("#tick").css("transform", "translate(-50%, -50%)")
     setTimeout(() => {
         $("#tick").removeClass("checkMark")
     }, 2000)
@@ -221,6 +225,8 @@ function closeCheckmark() {
         $("#tick").css("height", "0px")
         $("#tick").css("width", "0px")
         $("#tick").css("transform", "translate(1000%, 1000%)")
+        $("#tick").css("display", "none")
+        $("#tick").removeClass("slideOut")
     }, 1000)
 }
 
