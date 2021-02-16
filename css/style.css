@@ -24,7 +24,7 @@ header h2 {
 }
 
 header {
-    height: 7rem;
+    height: 13vh;
     width: 100%;
     display: flex;
 }
@@ -121,7 +121,7 @@ hr {
 }
 
 #playArea {
-    height: 77vh;
+    height: 76vh;
     width: 100%;
     background-image: radial-gradient(#21242b 10%, transparent 11%);
     background-size: 40px 40px;
@@ -144,7 +144,7 @@ hr {
 
 footer {
     /* border: 1px solid black; */
-    height: 6.5rem;
+    height: 11vh;
     width: 100%;
     display: flex;
 }
@@ -407,7 +407,25 @@ footer p {
 
 @media (max-width: 1120px) {
     #title h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
+    }
+
+    #tekoh {
+        transform: translate(50%, -45%);
+    }
+}
+
+@media (max-height: 900px) {
+    #playArea {
+        height: 72vh;
+    }
+
+    header {
+        height: 14vh;
+    }
+
+    footer {
+        height: 14vh;
     }
 }
 
