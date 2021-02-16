@@ -21,4 +21,5 @@ if (detectMob()) {
     $("#secondsContainer").html('<p><span class="number" id="seconds">0.0</span><br>seconds</p>')
     $("#clicksResultContainer").html('<p><span class="number" id="clicksResult">0</span><br>taps</p>')
     $("#cpsResultContainer").html('<p><span class="number" id="cpsResult">0.0</span><br>taps/second</p>')
+    $("#mobileStatsClicks").html('taps: <span class="number" id="statsTotalClicks">0</span>')
 }
