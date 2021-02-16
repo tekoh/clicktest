@@ -7,15 +7,14 @@
     margin: 0;
     text-decoration: none;
     scroll-behavior: smooth;
-    overflow-x: hidden;
     font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
 }
 
 body {
     background-color: #23272e;
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 header h2 {
@@ -199,6 +198,7 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
+    overflow: hidden;
 }
 
 #results h1 {
@@ -240,7 +240,7 @@ footer p {
     display: flex;
 }
 
-#lowerResults button {
+#lowerResults button, #lowerResultsBig button {
     height: 100%;
     width: 100%;
     border-radius: 1rem;
@@ -252,12 +252,12 @@ footer p {
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0);
 }
 
-#lowerResults button:hover {
+#lowerResults button:hover, #lowerResultsBig button:hover {
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 1)
 }
 
-#lowerResults button:focus {
+#lowerResults button:focus, #lowerResultsBig button:focus {
     border: 1px solid black;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1);
     outline: none;
@@ -276,12 +276,37 @@ footer p {
     background-color: rgb(120, 203, 241, 0.69);
 }
 
+#lowerResultsBig {
+    height: 9rem;
+    display: none;
+    padding: 1rem;
+    padding-top: 0rem;
+}
+
+#lowerResultsBig button {
+    height: 75%;
+    margin-bottom: 0.5rem;
+}
+
+#lowerResultsBig p, #lowerResultsBig a {
+    color: white;
+    text-align: center;
+}
+
+#lowerResultsBig a {
+    text-decoration: underline;
+}
+
 .fadeIn {
     animation: fullscreenFadeIn 2s;
 }
 
 .fadeOut {
     animation: fullscreenFadeOut 1s;
+}
+
+.slideIn {
+    animation: slideInBottom 0.5s;
 }
 
 @keyframes fullscreenFadeIn {
@@ -292,6 +317,17 @@ footer p {
 @keyframes fullscreenFadeOut {
     from { opacity: 100%; }
     to { opacity: 0%; }
+}
+
+@keyframes slideInBottom {
+    from { 
+        transform: translate(-50%, 1000%);
+        opacity: 50%;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 100%;
+    }
 }
 
 @media (max-width: 1120px) {

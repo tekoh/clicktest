@@ -75,7 +75,7 @@
     </footer>
 
     <div id="fullscreen">
-        <div id="results">
+        <div id="results" class="slideIn">
             <h1>results</h1>
             <hr>
             <div id="innerResults">
@@ -95,7 +95,7 @@
 
             <div id="lowerResults">
                 <div class="left buttonContainer" id="saveContainer">
-                    <button class="btn-save">
+                    <button class="btn-save" onclick="saveResults()">
                         save results
                     </button>
                 </div>
@@ -105,11 +105,18 @@
                         play again
                     </button>
                 </div>
+            </div>
 
+            <div id="lowerResultsBig">
+                <button class="btn-continue big-btn" onclick="restartGame()">
+                    play again
+                </button>
+                <p>autosave is enabled. click <a href="javascript:void(0);" onclick="deleteCookie()">here</a> to delete your data</p>
             </div>
         </div>
     </div>
 
+    <script src="./js/stats.js"></script>
     <script src="./js/game.js"> </script>
     <script src="./js/mobile.js"></script>
 </body>
