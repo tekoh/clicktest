@@ -37,12 +37,9 @@ $("#playArea").unbind().click(() => {
                 $("#clicksResult").text(clicks)
                 $("#cpsResult").text(calculateCps())
                 $("#secondsResult").text((seconds / 10))
-
-                $("#fullscreen").addClass("fadeIn")
-                $("#fullscreen").css("display", "block")
-
-                $("#results").addClass("slideIn")
-                $("#results").css("display", "block")
+                
+                openFullscreen()
+                openResults()
 
                 setTimeout(() => {
                     state = 4
@@ -59,7 +56,6 @@ $("#playArea").unbind().click(() => {
 
                         if (autosave) {
                             data.saveCookie()
-                            console.log("automatically saved results")
                         }
 
                         updateStats()
@@ -106,7 +102,8 @@ function calculateCps() {
 function saveResults() {
     if (state == 3) return
 
-    console.log("make prompt")
+    closeResults()
+    openCookies()
 }
 
 function deleteCookie() {
@@ -121,20 +118,11 @@ function deleteCookie() {
 function restartGame() {
     if (state == 3) return
 
-    console.log("a")
-
-    $("#results").removeClass("slideIn")
-    $("#fullscreen").removeClass("fadeIn")
-    $("#results").addClass("slideOut")
-    $("#fullscreen").addClass("fadeOut")
+    closeFullscreen()
+    closeResults()
+    
     $("#playArea").css("outline", "5px dotted rgb(120, 203, 241)")
 
-    setTimeout(() => {
-        $("#fullscreen").css("display", "none")
-        $("#fullscreen").removeClass("fadeOut")
-        $("#results").css("display", "none")
-        $("#results").removeClass("slideOut")
-    }, 1000)
 
     state = 5
     seconds = 0
@@ -150,6 +138,55 @@ function updateStats() {
     $("#statsTotalGames").text(data.games)
     $("#statsHighest").text(data.highest / 10)
 }
+
+function openFullscreen() {
+    $("#fullscreen").addClass("fadeIn")
+    $("#fullscreen").css("display", "block")
+    setTimeout(() => {
+        $("#fullscreen").removeClass("fadeIn")
+    }, 1000);
+}
+
+function closeFullscreen() {
+    $("#fullscreen").addClass("fadeOut")
+    setTimeout(() => {
+        $("#fullscreen").css("display", "none")
+        $("#fullscreen").removeClass("fadeOut")
+    }, 1000);
+}
+
+function openResults() {
+    $("#results").addClass("slideIn")
+    $("#results").css("display", "block")
+    setTimeout(() => {
+        $("#results").removeClass("slideIn")
+    }, 500);
+}
+
+function closeResults() {
+    $("#results").addClass("slideOut")
+    setTimeout(() => {
+        $("#results").css("display", "none")
+        $("#results").removeClass("slideOut")
+    }, 1000);
+}
+
+function openCookies() {
+    $("#cookieConsent").addClass("slideIn")
+    $("#cookieConsent").css("display", "block")
+    setTimeout(() => {
+        $("#cookieConsent").removeClass("slideIn")
+    }, 500);
+}
+
+function closeCookies() {
+    $("#cookieConsent").addClass("slideOut")
+    setTimeout(() => {
+        $("#cookieConsent").css("display", "none")
+        $("#cookieConsent").removeClass("slideOut")
+    }, 1000);
+}
+
 
 if (document.cookie) {
     data = stats.fromCookie(document.cookie)

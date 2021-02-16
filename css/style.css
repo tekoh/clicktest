@@ -310,7 +310,7 @@ footer p {
 
 #lowerCookies {
     display: flex;
-    height: 9rem;
+    height: 7rem;
 }
 
 .cookieButton {
@@ -326,7 +326,7 @@ footer p {
 }
 
 .fadeIn {
-    animation: fullscreenFadeIn 2s;
+    animation: fullscreenFadeIn 1s;
 }
 
 .fadeOut {
