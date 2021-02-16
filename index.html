@@ -74,46 +74,75 @@
         </div>
     </footer>
 
-    <div id="fullscreen">
-        <div id="results" class="slideIn">
-            <h1>results</h1>
-            <hr>
-            <div id="innerResults">
-                <div class="left resultsStat" id="clicksResultContainer">
-                    <p><span class="number" id="clicksResult">0</span><br>clicks</p>
-                </div>
-
-                <div class="middle resultsStat" id="cpsResultContainer">
-                    <p><span class="number" id="cpsResult">0.0</span><br>clicks/second</p>
-                </div>
-
-                <div class="right resultsStat" id="secondsResultContainer">
-                    <p><span class="number" id="secondsResult">0.0</span><br>seconds</p>
-                </div>
-            </div>
-            <hr>
-
-            <div id="lowerResults">
-                <div class="left buttonContainer" id="saveContainer">
-                    <button class="btn-save" onclick="saveResults()">
-                        save results
-                    </button>
-                </div>
-                
-                <div class="right buttonContainer" id="continueContainer">
-                    <button class="btn-continue" onclick="restartGame()">
-                        play again
-                    </button>
-                </div>
+    <div id="fullscreen"></div>
+    <div id="results" class="menu">
+        <h1>results</h1>
+        <hr>
+        <div id="innerResults">
+            <div class="left resultsStat" id="clicksResultContainer">
+                <p><span class="number" id="clicksResult">0</span><br>clicks</p>
             </div>
 
-            <div id="lowerResultsBig">
-                <button class="btn-continue big-btn" onclick="restartGame()">
-                    play again
-                </button>
-                <p>autosave is enabled. click <a href="javascript:void(0);" onclick="deleteCookie()">here</a> to delete your data</p>
+            <div class="middle resultsStat" id="cpsResultContainer">
+                <p><span class="number" id="cpsResult">0.0</span><br>clicks/second</p>
+            </div>
+
+            <div class="right resultsStat" id="secondsResultContainer">
+                <p><span class="number" id="secondsResult">0.0</span><br>seconds</p>
             </div>
         </div>
+
+        <hr>
+
+        <div id="lowerResults" class="lowerMenu">
+            <div class="left buttonContainer" id="saveContainer">
+                <button class="btn-save typicalButton" onclick="saveResults()">
+                    save results
+                </button>
+            </div>
+            
+            <div class="right buttonContainer" id="continueContainer">
+                <button class="btn-continue typicalButton" onclick="restartGame()">
+                    play again
+                </button>
+            </div>
+        </div>
+
+        <div id="lowerResultsBig">
+            <button class="btn-continue big-btn typicalButton" onclick="restartGame()">
+                play again
+            </button>
+            <p>autosave is enabled. click <a href="javascript:void(0);" onclick="deleteCookie()">here</a> to delete your data</p>
+        </div>
+    </div>
+    
+
+    <div id="cookieConsent" class="slideIn menu">
+        <h1>🍪 cookies</h1>
+
+        <hr>
+
+        <p>
+            click test uses cookies to store your stats long term (1 month after you last opened the website).
+            no other data is stored using cookies, at all, no advertisements or tracking at all.
+            <br><br>
+            to opt out of this, read the text at the bottom of the results page and cookies will be deleted.
+            <br><br>
+            by clicking accept, you give consent for cookies to be used to store stats.
+        </p>
+
+        <div id="lowerCookies" class="lowerMenu">
+            <div class="left buttonContainer">
+                <button class="btn-decline typicalButton cookieButton" onclick="cookieDecline()">decline</button>
+            </div>
+
+            <div class="right buttonContainer">
+                <button class="btn-accept typicalButton cookieButton" onclick="cookieAccept()">accept</button>
+            </div>
+        </div>
+
+        
+        
     </div>
 
     <script src="./js/stats.js"></script>

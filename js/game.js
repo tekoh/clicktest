@@ -41,6 +41,9 @@ $("#playArea").unbind().click(() => {
                 $("#fullscreen").addClass("fadeIn")
                 $("#fullscreen").css("display", "block")
 
+                $("#results").addClass("slideIn")
+                $("#results").css("display", "block")
+
                 setTimeout(() => {
                     state = 4
 
@@ -118,13 +121,19 @@ function deleteCookie() {
 function restartGame() {
     if (state == 3) return
 
+    console.log("a")
+
+    $("#results").removeClass("slideIn")
     $("#fullscreen").removeClass("fadeIn")
+    $("#results").addClass("slideOut")
     $("#fullscreen").addClass("fadeOut")
     $("#playArea").css("outline", "5px dotted rgb(120, 203, 241)")
 
     setTimeout(() => {
         $("#fullscreen").css("display", "none")
         $("#fullscreen").removeClass("fadeOut")
+        $("#results").css("display", "none")
+        $("#results").removeClass("slideOut")
     }, 1000)
 
     state = 5

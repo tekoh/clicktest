@@ -185,7 +185,7 @@ footer p {
     display: none;
 }
 
-#results {
+.menu {
     position: absolute;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.308);
@@ -199,18 +199,29 @@ footer p {
     transform: translate(-50%, -50%);
     padding: 1rem;
     overflow: hidden;
+    color: white;
 }
 
-#results h1 {
+.menu h1 {
     text-align: center;
     color: white;
     font-weight: 400;
     font-size: 3rem;
 }
 
-#results hr {
+.menu hr {
     margin: 1rem;
     background: #23272e;
+}
+
+.lowerMenu {
+    height: 9rem;
+    display: flex;
+    padding: 1rem;
+}
+
+#results {
+    display: none;
 }
 
 #innerResults {
@@ -234,13 +245,7 @@ footer p {
     display: block;
 }
 
-#lowerResults {
-    width: 100%;
-    height: 9rem;
-    display: flex;
-}
-
-#lowerResults button, #lowerResultsBig button {
+.typicalButton {
     height: 100%;
     width: 100%;
     border-radius: 1rem;
@@ -252,12 +257,12 @@ footer p {
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0);
 }
 
-#lowerResults button:hover, #lowerResultsBig button:hover {
+.typicalButton:hover {
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 1)
 }
 
-#lowerResults button:focus, #lowerResultsBig button:focus {
+.typicalButton:focus {
     border: 1px solid black;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1);
     outline: none;
@@ -283,9 +288,11 @@ footer p {
     padding-top: 0rem;
 }
 
-#lowerResultsBig button {
+.big-btn {
     height: 75%;
     margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 3rem;
 }
 
 #lowerResultsBig p, #lowerResultsBig a {
@@ -295,6 +302,27 @@ footer p {
 
 #lowerResultsBig a {
     text-decoration: underline;
+}
+
+#cookieConsent {
+    display: none;
+}
+
+#lowerCookies {
+    display: flex;
+    height: 9rem;
+}
+
+.cookieButton {
+    font-size: 3rem;
+}
+
+.btn-accept {
+    background-color: rgb(0, 255, 106, 0.69);
+}
+
+.btn-decline {
+    background-color: rgba(255, 52, 52, 0.69);
 }
 
 .fadeIn {
@@ -307,6 +335,10 @@ footer p {
 
 .slideIn {
     animation: slideInBottom 0.5s;
+}
+
+.slideOut {
+    animation: slideOutBottom 1s;
 }
 
 @keyframes fullscreenFadeIn {
@@ -322,11 +354,22 @@ footer p {
 @keyframes slideInBottom {
     from { 
         transform: translate(-50%, 1000%);
-        opacity: 50%;
+        opacity: 25%;
     }
     to {
         transform: translate(-50%, -50%);
         opacity: 100%;
+    }
+}
+
+@keyframes slideOutBottom {
+    from { 
+        transform: translate(-50%, -50%);
+        opacity: 100%;
+    }
+    to {
+        transform: translate(-50%, 1000%);
+        opacity: 25%;
     }
 }
 
@@ -398,8 +441,12 @@ footer p {
         padding-top: 1rem;
     }
 
-    #results {
+    .menu {
         width: 20rem;
+    }
+
+    .lowerMenu {
+        padding-top: 0rem;
     }
 
     .resultsStat {
@@ -410,13 +457,17 @@ footer p {
         font-size: 2rem;
     }
 
-    #lowerResults {
+    .lowerMenu {
         height: 10rem;
     }
 
-    #lowerResults button {
+    .typicalButton {
         font-size: 1.5rem;
         height: 6rem;
+    }
+
+    #cookieConsent p {
+        font-size: 0.8rem;
     }
 
 }
