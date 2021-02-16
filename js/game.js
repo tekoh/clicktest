@@ -123,7 +123,6 @@ function restartGame() {
     
     $("#playArea").css("outline", "5px dotted rgb(120, 203, 241)")
 
-
     state = 5
     seconds = 0
 
@@ -137,6 +136,27 @@ function updateStats() {
     $("#statsTotalClicks").text(data.clicks)
     $("#statsTotalGames").text(data.games)
     $("#statsHighest").text(data.highest / 10)
+}
+
+function cookieAccept() {
+    autosave = true
+
+    $("#lowerResults").css("display", "none")
+    $("#lowerResultsBig").css("display", "block")
+
+    closeCookies()
+    showCheckmark()
+    setTimeout(() => {
+        closeCheckmark()
+        restartGame()
+    }, 2500)
+}
+
+function cookieDecline() {
+    autosave = false
+
+    closeCookies()
+    restartGame()
 }
 
 function openFullscreen() {
@@ -187,6 +207,22 @@ function closeCookies() {
     }, 1000);
 }
 
+function showCheckmark() {
+    $("#tick").addClass("checkMark")
+    $("#tick").css("display", "block")
+    setTimeout(() => {
+        $("#tick").removeClass("checkMark")
+    }, 2000)
+}
+
+function closeCheckmark() {
+    $("#tick").addClass("slideOut")
+    setTimeout(() => {
+        $("#tick").css("height", "0px")
+        $("#tick").css("width", "0px")
+        $("#tick").css("transform", "translate(1000%, 1000%)")
+    }, 1000)
+}
 
 if (document.cookie) {
     data = stats.fromCookie(document.cookie)

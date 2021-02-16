@@ -325,6 +325,16 @@ footer p {
     background-color: rgba(255, 52, 52, 0.69);
 }
 
+#tick {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: rgb(105, 255, 105);
+    display: none;
+    z-index: 15;
+}
+
 .fadeIn {
     animation: fullscreenFadeIn 1s;
 }
@@ -339,6 +349,27 @@ footer p {
 
 .slideOut {
     animation: slideOutBottom 1s;
+}
+
+.checkMark {
+    animation: checkMarkIn 2s;
+}
+
+@keyframes checkMarkIn {
+    0% {
+        transform: translate(-50%, 1000%);
+        opacity: 25%;
+    }
+    25% {
+        fill: rgb(68, 255, 68);
+    }
+    50% {
+        transform: translate(-50%, -50%);
+        opacity: 100%;
+    }
+    100% {
+        fill: rgb(105, 255, 105);
+    }
 }
 
 @keyframes fullscreenFadeIn {
