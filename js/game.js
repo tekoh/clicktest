@@ -259,5 +259,7 @@ if (document.cookie) {
     $("#lowerResults").css("display", "none")
     $("#lowerResultsBig").css("display", "block")
 
-    updateStats()
+    setTimeout(() => {
+        updateStats()
+    }, 500);
 }
