@@ -2,6 +2,7 @@ let mode = 5
 let state = 0
 let clicks = 0
 let seconds = 0
+let lastClick, secondsUpdater
 
 let data
 let autosave = false
@@ -25,7 +26,7 @@ $("#playArea").unbind().click((e) => {
 
         updateClicks(clicks + 1)
 
-        const secondsUpdater = setInterval(() => {
+        secondsUpdater = setInterval(() => {
             seconds = seconds + 1
 
             $("#seconds").text((seconds / 10).toFixed(1))
@@ -75,6 +76,17 @@ $("#playArea").unbind().click((e) => {
             $("#playArea").css("outline", "5px dotted rgb(120, 203, 241, 0)")
         }, 150)
     } else if (state == 1) {
+
+        if (mode == 69420) {
+            const now = new Date().getTime()
+
+            if (lastClick && now - lastClick >= 1500) {
+                clicks = 0
+                seconds = 0
+            }
+            lastClick = now
+        }
+
         updateClicks(clicks + 1)
         updateCps()
 
@@ -83,7 +95,7 @@ $("#playArea").unbind().click((e) => {
             createParticle(e.clientX, e.clientY)
         } else if (cps > 10) {
             createParticle(e.clientX, e.clientY, true)
-        }
+        } 
     }
 })
 
