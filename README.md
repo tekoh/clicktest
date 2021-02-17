@@ -1,7 +1,7 @@
 # clicktest
 
 ### 🍟 url
-[tekoh.wtf/clicktest](https://tekoh.wtf/clicktest)
+[click.tekoh.net](https://click.tekoh.net)
 
 ### 🍪 why
-currently using it to learn more abt web development and as a fun little game - might end up being integrated with nypsi at some point
+used to learn more about web development and javascript
