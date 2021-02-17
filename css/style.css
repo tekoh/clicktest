@@ -336,6 +336,12 @@ footer p {
     z-index: 15;
 }
 
+particle {
+    border-radius: 50%;
+    pointer-events: none;
+    position: absolute;
+}
+
 .fadeIn {
     animation: fullscreenFadeIn 1s;
 }

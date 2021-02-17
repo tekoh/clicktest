@@ -16,7 +16,8 @@ function changeMode(modeSelected) {
     $(`#${modeSelected}`).addClass("selected")
 }
 
-$("#playArea").unbind().click(() => {
+$("#playArea").unbind().click((e) => {
+
     if (state == 0 || state == 5) {
         state = 1
 
@@ -76,6 +77,13 @@ $("#playArea").unbind().click(() => {
     } else if (state == 1) {
         updateClicks(clicks + 1)
         updateCps()
+
+        const cps = calculateCps()
+        if (cps > 5 && cps < 10) {
+            createParticle(e.clientX, e.clientY)
+        } else if (cps > 10) {
+            createParticle(e.clientX, e.clientY, true)
+        }
     }
 })
 
