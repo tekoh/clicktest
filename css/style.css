@@ -59,6 +59,31 @@ header a:hover {
     transform: translate(145%, -90%);
 }
 
+#links {
+    float: left;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 50%;
+    margin: 0;
+}
+
+#links a {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+
+.linkIcon {
+    fill: rgb(170, 170, 170);
+    vertical-align: -0.2rem;
+    width: 1rem;
+    height: 1rem;
+}
+
 .middle {
     flex: 1;
     order: 2;
@@ -66,7 +91,6 @@ header a:hover {
 }
 
 .left {
-    margin-left: 5rem;
     flex: 1;
     order: 1;
     text-align: right;
@@ -76,7 +100,6 @@ header a:hover {
     flex: 1;
     order: 3;
     text-align: left;
-    margin-right: 5rem;
 }
 
 #mode, #stats {

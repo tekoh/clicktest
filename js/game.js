@@ -7,16 +7,6 @@ let lastClick, secondsUpdater
 let data
 let autosave = false
 
-function changeMode(modeSelected) {
-    if (state != 0 && state != 5) return
-    if (modeSelected == mode) return
-
-    mode = modeSelected
-
-    $(".selected").removeClass("selected")
-    $(`#${modeSelected}`).addClass("selected")
-}
-
 $("#playArea").unbind().click((e) => {
 
     if (state == 0 || state == 5) {
@@ -33,40 +23,7 @@ $("#playArea").unbind().click((e) => {
             updateCps()
 
             if ((seconds / 10) == mode) {
-                clearInterval(secondsUpdater)
-                state = 3
-
-                $("#clicksResult").text(clicks)
-                $("#cpsResult").text(calculateCps())
-                $("#secondsResult").text((seconds / 10))
-                
-                openFullscreen()
-                openResults()
-
-                setTimeout(() => {
-                    state = 4
-
-                    const cps = parseInt(calculateCps() * 10)
-                    
-                    if (data instanceof stats) {
-                        data.addClicks(clicks)
-                        data.addGame()
-
-                        if (cps > data.highest) {
-                            data.setHighest(cps)
-                        }
-
-                        if (autosave) {
-                            data.saveCookie()
-                        }
-
-                        updateStats()
-                    } else {
-                        data = new stats(clicks, 1, cps)
-
-                        updateStats()
-                    }
-                }, 1000)
+                endGame()
             }
         }, 100);
 
@@ -98,6 +55,61 @@ $("#playArea").unbind().click((e) => {
         } 
     }
 })
+
+$("body").keyup((e) => {
+    if (e.key.toLowerCase() == "escape") {
+        if (state == 1) {
+            endGame()
+        }
+    }
+})
+
+function endGame() {
+    clearInterval(secondsUpdater)
+    state = 3
+
+    $("#clicksResult").text(clicks)
+    $("#cpsResult").text(calculateCps())
+    $("#secondsResult").text((seconds / 10))
+    
+    openFullscreen()
+    openResults()
+
+    setTimeout(() => {
+        state = 4
+
+        const cps = parseInt(calculateCps() * 10)
+        
+        if (data instanceof stats) {
+            data.addClicks(clicks)
+            data.addGame()
+
+            if (cps > data.highest) {
+                data.setHighest(cps)
+            }
+
+            if (autosave) {
+                data.saveCookie()
+            }
+        } else {
+            data = new stats(clicks, 1, cps)
+        }
+
+        if ((seconds / 10) == mode) {
+            updateStats()
+        }
+    }, 1000)
+}
+
+function changeMode(modeSelected) {
+    if (state != 0 && state != 5) return
+    if (modeSelected == mode) return
+
+    mode = modeSelected
+
+    $(".selected").removeClass("selected")
+    $(`#${modeSelected}`).addClass("selected")
+}
 
 function updateClicks(value) {
     clicks = value
